@@ -1,0 +1,2 @@
+API Endpoints - Wed Oct 14 20:49:20 UTC 2015
+     1	GET  /api/languages/classify
