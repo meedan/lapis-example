@@ -1,7 +1,7 @@
 {
   "MiniTest": {
     "coverage": {
-      "/home/caiosba/Meedan/api-base/langid/lib/api_constraints.rb": [
+      "/home/caiosba/Meedan/lapis-example/lib/api_constraints.rb": [
         1,
         1,
         31,
@@ -17,7 +17,7 @@
         null,
         null
       ],
-      "/home/caiosba/Meedan/api-base/langid/lib/sample_data.rb": [
+      "/home/caiosba/Meedan/lapis-example/lib/sample_data.rb": [
         1,
         null,
         null,
@@ -39,7 +39,7 @@
         null,
         null
       ],
-      "/home/caiosba/Meedan/api-base/langid/app/controllers/api/v1/base_api_controller.rb": [
+      "/home/caiosba/Meedan/lapis-example/app/controllers/api/v1/base_api_controller.rb": [
         1,
         null,
         1,
@@ -142,7 +142,7 @@
         null,
         null
       ],
-      "/home/caiosba/Meedan/api-base/langid/lib/error_codes.rb": [
+      "/home/caiosba/Meedan/lapis-example/lib/error_codes.rb": [
         1,
         1,
         1,
@@ -158,17 +158,17 @@
         null,
         null
       ],
-      "/home/caiosba/Meedan/api-base/langid/app/controllers/application_controller.rb": [
+      "/home/caiosba/Meedan/lapis-example/app/controllers/application_controller.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/caiosba/Meedan/api-base/langid/app/helpers/application_helper.rb": [
+      "/home/caiosba/Meedan/lapis-example/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/caiosba/Meedan/api-base/langid/app/controllers/api/v1/languages_controller.rb": [
+      "/home/caiosba/Meedan/lapis-example/app/controllers/api/v1/languages_controller.rb": [
         1,
         null,
         1,
@@ -176,15 +176,15 @@
         1,
         2,
         2,
-        2,
         1,
         null,
+        1,
         1,
         null,
         null,
         null
       ],
-      "/home/caiosba/Meedan/api-base/langid/app/controllers/concerns/languages_doc.rb": [
+      "/home/caiosba/Meedan/lapis-example/app/controllers/concerns/languages_doc.rb": [
         null,
         1,
         1,
@@ -204,7 +204,7 @@
         null,
         null
       ],
-      "/home/caiosba/Meedan/api-base/langid/app/models/api_key.rb": [
+      "/home/caiosba/Meedan/lapis-example/app/models/api_key.rb": [
         1,
         1,
         1,
@@ -228,6 +228,6 @@
         null
       ]
     },
-    "timestamp": 1420110000
+    "timestamp": 1420113600
   }
 }
