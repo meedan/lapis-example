@@ -9,7 +9,7 @@
     }
   ],
   "info": {
-    "title": "API Docs",
-    "description": "Documentation and API explorer"
+    "title": "Lapis Example",
+    "description": "An application to be used as an example for Lapis framework"
   }
 }
