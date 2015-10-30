@@ -11,3 +11,5 @@ In order to play with this API, do the following:
 * Create an API key: `rake lapis:api_keys:create`
 * Start the server: `rails s`
 * Go to `http://localhost:3000/api` and use the API key you created
+
+Other applications can communicate with this service (and test this communication) using [lapis-example-client](https://github.com/meedan/lapis-example-client), which is a gem generated automatically with `rake lapis:build_client_gem`, a rake task provided by Lapis.
