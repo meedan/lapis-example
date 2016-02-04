@@ -50,7 +50,6 @@ gem 'webmock'
 gem 'mocha'
 gem 'simplecov', require: false, group: :test
 gem 'railroady'
-gem 'airbrake'
 gem 'codeclimate-test-reporter', group: :test, require: nil
 gem 'awesome_print', require: false, group: :development
 gem 'gem-licenses'
@@ -63,3 +62,4 @@ gem 'responders'
 gem 'whatlanguage'
 
 gem 'unicorn'
+gem 'airbrake', '4.3.3'
