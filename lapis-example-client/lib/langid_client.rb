@@ -39,7 +39,7 @@ module LangidClient
       end
 
       unless token.blank?
-        request['Authorization'] = 'Token token="' + token.to_s + '"'
+        request['X-Lapis-Example-Token'] = token.to_s
       end
 
       http = Net::HTTP.new(uri.hostname, uri.port)
@@ -59,7 +59,7 @@ module LangidClient
       WebMock.disable_net_connect!
       host ||= LangidClient.host
       WebMock.stub_request(:get, host + '/api/languages/classify')
-      .with({:query=>{:text=>"The book is on the table"}, :headers=>{"Authorization"=>"Token token=\"test\""}})
+      .with({:query=>{:text=>"The book is on the table"}, :headers=>{"X-Lapis-Example-Token"=>"test"}})
       .to_return(body: '{"type":"language","data":"english"}', status: 200)
       @data = {"type"=>"language", "data"=>"english"}
       yield
@@ -70,7 +70,7 @@ module LangidClient
       WebMock.disable_net_connect!
       host ||= LangidClient.host
       WebMock.stub_request(:get, host + '/api/languages/classify')
-      .with({:query=>nil, :headers=>{"Authorization"=>"Token token=\"test\""}})
+      .with({:query=>nil, :headers=>{"X-Lapis-Example-Token"=>"test"}})
       .to_return(body: '{"type":"error","data":{"message":"Parameters missing","code":2}}', status: 400)
       @data = {"type"=>"error", "data"=>{"message"=>"Parameters missing", "code"=>2}}
       yield
@@ -82,8 +82,8 @@ module LangidClient
       host ||= LangidClient.host
       WebMock.stub_request(:get, host + '/api/languages/classify')
       .with({:query=>{:text=>"Test"}})
-      .to_return(body: 'HTTP Token: Access denied.', status: 401)
-      @data = nil
+      .to_return(body: '{"type":"error","data":{"message":"Unauthorized","code":1}}', status: 401)
+      @data = {"type"=>"error", "data"=>{"message"=>"Unauthorized", "code"=>1}}
       yield
       WebMock.allow_net_connect!
     end
