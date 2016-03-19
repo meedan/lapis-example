@@ -17,6 +17,48 @@ An application to be used as an example for Lapis framework
 
 * You can also start the application on Docker by running `rake lapis:docker:run` (it will run on port 3000 and your local hostname) - you first need to create an API key after entering the container (`lapis:docker:shell`) before using the web interface
 
+### API
+
+#### GET /api/languages/classify
+
+Use this method in order to identify the language of a given text
+
+**Parameters**
+
+* `text`: Text to be classified _(required)_
+
+**Response**
+
+200: Text language
+```json
+{
+  "type": "language",
+  "data": "english"
+}
+```
+
+400: Parameter "text" is missing
+```json
+{
+  "type": "error",
+  "data": {
+    "message": "Parameters missing",
+    "code": 2
+  }
+}
+```
+
+401: Access denied
+```json
+{
+  "type": "error",
+  "data": {
+    "message": "Unauthorized",
+    "code": 1
+  }
+}
+```
+
 ### Running the tests
 
 * `bundle install --without nothing`
