@@ -57,9 +57,10 @@ gem 'logstasher'
 gem 'auto_localize', '0.1'
 gem 'thin'
 gem 'protected_attributes'
-gem 'swagger-docs'
 gem 'responders'
 gem 'whatlanguage'
 
 gem 'unicorn'
 gem 'airbrake', '4.3.3'
+
+gem 'swagger-docs', '0.1.9'

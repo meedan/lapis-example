@@ -8,12 +8,12 @@ class LangidClient extends \Meedan\Lapis\LapisClient {
     parent::__construct($config);
   }
   
-  // GET /api/languages/classify
+  // GET api/languages/classify
   // Send some text to be classified
   // @param $text
   //  Text to be classified
   public function get_languages_classify($text) {
-    return $this->request('get', '/api/languages/classify', [ 'text' => $text ]);
+    return $this->request('get', 'api/languages/classify', [ 'text' => $text ]);
   }
   
   public static function mock_languages_classify_returns_text_language() {

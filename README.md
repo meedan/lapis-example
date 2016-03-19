@@ -1,16 +1,42 @@
 ## Lapis Example
 
-This is a sample API written on top of [Lapis](https://github.com/meedan/lapis).
+An application to be used as an example for Lapis framework
 
-It's an API with a single endpoint that, given a text, returns its language, using [WhatLanguage](https://github.com/peterc/whatlanguage).
+### Installation
 
-In order to play with this API, do the following:
+#### Non-Docker-based
 
-* Configure `config/config.yml`, `config/database.yml`, `config/initializers/errbit.rb` and `config/initializers/secret_token.rb`
-* Run `rake db:migrate`
-* Create an API key: `rake lapis:api_keys:create`
+* Configure `config/config.yml`, `config/database.yml`, `config/initializers/errbit.rb` and `config/initializers/secret_token.rb` (check the example files)
+* Run `bundle install`
+* Run `bundle exec rake db:migrate`
+* Create an API key: `bundle exec rake lapis:api_keys:create`
 * Start the server: `rails s`
-* Go to `http://localhost:3000/api` and use the API key you created
-* You can also start the application on Docker by running `./docker/run.sh` (it will run on port 80 and your local hostname) - you first need to create an API key after entering the container (`./docker/shell.sh`)
+* Go to [http://localhost:3000/api](http://localhost:3000/api) and use the API key you created
 
-Other applications can communicate with this service (and test this communication) using [lapis-example-client](https://github.com/meedan/lapis-example-client), which is a gem generated automatically with `rake lapis:build_client_gem`, a rake task provided by Lapis.
+#### Docker-based
+
+* You can also start the application on Docker by running `rake lapis:docker:run` (it will run on port 3000 and your local hostname) - you first need to create an API key after entering the container (`lapis:docker:shell`) before using the web interface
+
+### Integration
+
+Other applications can communicate with this service (and test this communication) using the client library, which can be automatically generated.
+
+### Rake tasks
+
+There are rake tasks for a few tasks (besides Rails' default ones). Run them this way: `bundle exec rake <task name>`
+
+* `test:coverage`: Run all tests and calculate test coverage
+* `application=<application name> lapis:api_keys:create`: Create a new API key for an application
+* `lapis:api_keys:delete_expired`: Delete all expired keys
+* `lapis:error_codes`: List all error codes that this application can return
+* `lapis:licenses`: List the licenses of all libraries used by this project
+* `lapis:client:ruby`: Generate a client Ruby gem, that allows other applications to communicate and test this service
+* `lapis:client:php`: Generate a client PHP library, that allows other applications to communicate and test this service
+* `lapis:docs`: Generate the documentation for this API, including models and controllers diagrams, Swagger, API endpoints, licenses, etc.
+* `lapis:docker:run`: Run the application in Docker
+* `lapis:docker:shell`: Enter the Docker container
+* `swagger:docs:markdown`: Generate the documentation in markdown format
+
+### Credits
+
+Meedan (hello@meedan.com)
