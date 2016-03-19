@@ -37,7 +37,7 @@ module Api
         signature = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), CONFIG['secret_token'].to_s, payload)
         Rack::Utils.secure_compare(signature, request.headers['X-Signature'].to_s)
       end
-  
+
       def get_params
         params.reject{ |k, v| ['id', 'action', 'controller', 'format'].include?(k) }
       end
@@ -82,9 +82,9 @@ module Api
       #   render_error 'Invalid value', 'INVALID_VALUE'
       # end
 
-      # def render_parameters_missing
-      #   render_error 'Parameters missing', 'MISSING_PARAMETERS'
-      # end
+      def render_parameters_missing
+        render_error 'Parameters missing', 'MISSING_PARAMETERS'
+      end
 
       # def render_not_found
       #   render_error 'Id not found', 'ID_NOT_FOUND', 404
