@@ -33,6 +33,10 @@ If you are going to test something that uses the 'langid_client' service, first 
 * LangidClient::Mock.mock_languages_classify_returns_parameter_text_is_missing
 * LangidClient::Mock.mock_languages_classify_returns_access_denied
 
+You can also reuse utility functions that are exposed by 'langid_client'. They are:
+
+* LangidClient::Util.normalize
+
 ## Contributing
 
 1. Fork it
