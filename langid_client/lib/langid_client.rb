@@ -93,7 +93,7 @@ module LangidClient
   module Util
     
     def self.normalize(text)
-      text.downcase.gsub(/àáãâ/, 'a').gsub(/èéẽê/, 'e').gsub(/íìĩî/, 'i').gsub(/óòõô/, 'o').gsub(/úùũû/, 'u').gsub('ç', 'c')
+      text.downcase.gsub(/[àáãâ]/, 'a').gsub(/[èéẽê]/, 'e').gsub(/[íìĩî]/, 'i').gsub(/[óòõô]/, 'o').gsub(/[úùũû]/, 'u').gsub('ç', 'c')
     end
   end
 end

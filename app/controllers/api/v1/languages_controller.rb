@@ -17,6 +17,6 @@ class Api::V1::LanguagesController < Api::V1::BaseApiController
 
   # @expose
   def normalize(text)
-    text.downcase.gsub(/àáãâ/, 'a').gsub(/èéẽê/, 'e').gsub(/íìĩî/, 'i').gsub(/óòõô/, 'o').gsub(/úùũû/, 'u').gsub('ç', 'c')
+    text.downcase.gsub(/[àáãâ]/, 'a').gsub(/[èéẽê]/, 'e').gsub(/[íìĩî]/, 'i').gsub(/[óòõô]/, 'o').gsub(/[úùũû]/, 'u').gsub('ç', 'c')
   end
 end
