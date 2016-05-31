@@ -10,15 +10,6 @@
         {
           "summary": "Send some text to be classified",
           "notes": "Use this method in order to identify the language of a given text",
-          "parameters": [
-            {
-              "paramType": "query",
-              "name": "text",
-              "type": "string",
-              "description": "Text to be classified",
-              "required": true
-            }
-          ],
           "responseMessages": [
             {
               "code": 200,
@@ -27,7 +18,7 @@
                   "text": "The book is on the table"
                 },
                 "headers": {
-                  "authorization": "Token token=\"test\""
+                  "x-Lapis-Example-Token": "test"
                 }
               },
               "message": "Text language"
@@ -37,7 +28,7 @@
               "responseModel": {
                 "query": null,
                 "headers": {
-                  "authorization": "Token token=\"test\""
+                  "x-Lapis-Example-Token": "test"
                 }
               },
               "message": "Parameter \"text\" is missing"
@@ -50,6 +41,15 @@
                 }
               },
               "message": "Access denied"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "text",
+              "type": "string",
+              "description": "Text to be classified",
+              "required": true
             }
           ],
           "method": "get",

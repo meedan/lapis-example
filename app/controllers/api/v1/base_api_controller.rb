@@ -3,6 +3,8 @@ require 'error_codes'
 module Api
   module V1
     class BaseApiController < ApplicationController
+      include BaseDoc
+
       before_filter :remove_empty_params_and_headers
       before_filter :set_custom_response_headers
       before_filter :authenticate_from_token!
@@ -10,6 +12,10 @@ module Api
       # before_filter :verify_payload!
 
       respond_to :json
+
+      def version
+        render_success 'version', VERSION
+      end
 
       private
 
