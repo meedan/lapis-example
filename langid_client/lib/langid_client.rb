@@ -16,6 +16,11 @@ module LangidClient
 
   module Request
     
+    # GET /api/version
+    def self.get_version(host = nil, params = {}, token = '', headers = {})
+      request('get', host, '/api/version', params, token, headers)
+    end
+           
     # GET /api/languages/classify
     def self.get_languages_classify(host = nil, params = {}, token = '', headers = {})
       request('get', host, '/api/languages/classify', params, token, headers)
@@ -55,6 +60,28 @@ module LangidClient
 
   module Mock
     
+    def self.mock_version_returns_the_version_of_this_application(host = nil)
+      WebMock.disable_net_connect!
+      host ||= LangidClient.host
+      WebMock.stub_request(:get, host + '/api/version')
+      .with({:query=>{}, :headers=>{"X-Lapis-Example-Token"=>"test"}})
+      .to_return(body: '{"type":"version","data":"0.0.1"}', status: 200)
+      @data = {"type"=>"version", "data"=>"0.0.1"}
+      yield
+      WebMock.allow_net_connect!
+    end
+             
+    def self.mock_version_returns_access_denied(host = nil)
+      WebMock.disable_net_connect!
+      host ||= LangidClient.host
+      WebMock.stub_request(:get, host + '/api/version')
+      .with({:query=>{}})
+      .to_return(body: '{"type":"error","data":{"message":"Unauthorized","code":1}}', status: 401)
+      @data = {"type"=>"error", "data"=>{"message"=>"Unauthorized", "code"=>1}}
+      yield
+      WebMock.allow_net_connect!
+    end
+             
     def self.mock_languages_classify_returns_text_language(host = nil)
       WebMock.disable_net_connect!
       host ||= LangidClient.host
@@ -93,7 +120,9 @@ module LangidClient
   module Util
     
     def self.normalize(text)
-      text.downcase.gsub(/[àáãâ]/, 'a').gsub(/[èéẽê]/, 'e').gsub(/[íìĩî]/, 'i').gsub(/[óòõô]/, 'o').gsub(/[úùũû]/, 'u').gsub('ç', 'c')
+      require 'diacritics'
+      String.send(:include, Diacritics::String) unless text.respond_to?(:permanent)
+      text.permanent.gsub('-', ' ')
     end
   end
 end

@@ -69,6 +69,7 @@ GEM
       safe_yaml (~> 1.0.0)
     daemons (1.2.3)
     debug_inspector (0.0.2)
+    diacritics (0.0.8)
     docile (1.1.5)
     erubis (2.7.0)
     eventmachine (1.2.0.1)
@@ -227,6 +228,7 @@ DEPENDENCIES
   byebug
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
+  diacritics
   gem-licenses
   htmlentities
   jbuilder (~> 2.0)

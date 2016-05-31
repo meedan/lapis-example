@@ -66,3 +66,5 @@ gem 'unicorn'
 gem 'airbrake', '4.3.3'
 
 gem 'swagger-docs', '0.1.9'
+
+gem 'diacritics'

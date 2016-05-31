@@ -25,10 +25,13 @@ With this gem you can call methods from langid's API and also test them by using
 
 The available methods are:
 
+* LangidClient::Request.get_version (`GET /api/version`)
 * LangidClient::Request.get_languages_classify (`GET /api/languages/classify`)
 
 If you are going to test something that uses the 'langid_client' service, first you need to mock each possible response it can return, which are:
 
+* LangidClient::Mock.mock_version_returns_the_version_of_this_application
+* LangidClient::Mock.mock_version_returns_access_denied
 * LangidClient::Mock.mock_languages_classify_returns_text_language
 * LangidClient::Mock.mock_languages_classify_returns_parameter_text_is_missing
 * LangidClient::Mock.mock_languages_classify_returns_access_denied

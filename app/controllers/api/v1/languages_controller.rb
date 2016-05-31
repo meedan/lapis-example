@@ -17,6 +17,8 @@ class Api::V1::LanguagesController < Api::V1::BaseApiController
 
   # @expose
   def normalize(text)
-    text.downcase.gsub(/[àáãâ]/, 'a').gsub(/[èéẽê]/, 'e').gsub(/[íìĩî]/, 'i').gsub(/[óòõô]/, 'o').gsub(/[úùũû]/, 'u').gsub('ç', 'c')
+    require 'diacritics'
+    String.send(:include, Diacritics::String) unless text.respond_to?(:permanent)
+    text.permanent.gsub('-', ' ')
   end
 end
